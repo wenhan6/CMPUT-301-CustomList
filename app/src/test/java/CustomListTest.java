@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.simpleparadox.listycity.City;
 import com.example.simpleparadox.listycity.CustomList;
@@ -17,9 +18,16 @@ public class CustomListTest {
     }
 
     @Test
-    public void  addCityTest() {
+    public void addCityTest() {
         int listSize = list.getCount();
         list.addCity(new City("Halifax","NS"));
         assertEquals(list.getCount(), listSize+1);
+    }
+
+    @Test
+    public void hasCityTest() {
+        City city = new City("Halifax", "NS");
+        list.addCity(city);
+        assertTrue(list.hasCity(city));
     }
 }
